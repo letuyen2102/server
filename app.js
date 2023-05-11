@@ -5,7 +5,7 @@ const productRouter = require('./routes/productRoutes')
 const userRouter = require('./routes/userRoutes')
 const cartRouter = require('./routes/cartRoutes')
 const bookingRouter = require('./routes/bookingRoutes')
-
+const categoryRouter = require('./routes/categoryRoutes')
 
 const app = express()
 
@@ -19,4 +19,5 @@ app.use('/myway/api/users' , userRouter)
 
 app.use('/myway/api/carts' , cartRouter)
 app.use('/myway/api/bookings' , bookingRouter)
+app.use('/myway/api/categories' , categoryRouter)
 module.exports = app

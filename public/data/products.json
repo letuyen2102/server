@@ -7,6 +7,7 @@
         "quantity": [
             {
                 "color": "Do",
+                "colorName": "Đỏ",
                 "size": [
                     {
                         "size": "S",
@@ -56,7 +57,7 @@
         ],
         "image": "clothes-1-main.webp",
         "category": "Dam",
-        "type": "DamXoe"
+        "categoryName": "Đầm"
     },
     {
         "name": "Đầm xòe sơ mi dáng dài Beige",
@@ -66,6 +67,7 @@
         "quantity": [
             {
                 "color": "Be",
+                "colorName": "Be",
                 "size": [
                     {
                         "size": "S",
@@ -114,7 +116,7 @@
         ],
         "image": "clothes-2-main.webp",
         "category": "Dam",
-        "type": "DamXoe"
+        "categoryName": "Đầm"
     },
     {
         "name": "Đầm maxi cổ tym không tay",
@@ -124,6 +126,7 @@
         "quantity": [
             {
                 "color": "Ke",
+                "colorName": "Kẻ",
                 "size": [
                     {
                         "size": "S",
@@ -172,7 +175,7 @@
         ],
         "image": "clothes-3-main.webp",
         "category": "Dam",
-        "type": "DamMaxi"
+        "categoryName": "Đầm"
     },
     {
         "name": "Đầm xòe hai dây dáng ngắn đính hoa Mustard",
@@ -182,6 +185,7 @@
         "quantity": [
             {
                 "color": "Vang",
+                "colorName": "Vàng",
                 "size": [
                     {
                         "size": "S",
@@ -231,7 +235,7 @@
         ],
         "image": "clothes-4-main.webp",
         "category": "Dam",
-        "type": "DamXoe"
+        "categoryName": "Đầm"
     },
     {
         "name": "Đầm maxi chéo vai",
@@ -241,6 +245,7 @@
         "quantity": [
             {
                 "color": "Xanh",
+                "colorName": "Xanh",
                 "size": [
                     {
                         "size": "S",
@@ -280,6 +285,7 @@
             },
             {
                 "color": "Hong",
+                "colorName": "Hồng",
                 "size": [
                     {
                         "size": "S",
@@ -319,7 +325,7 @@
         ],
         "image": "clothes-5-main.webp",
         "category": "Dam",
-        "type": "DamMaxi"
+        "categoryName": "Đầm"
     },
     {
         "name": " (2 màu) Đầm ôm body sang trọng",
@@ -329,6 +335,7 @@
         "quantity": [
             {
                 "color": "Den",
+                "colorName": "Đen",
                 "size": [
                     {
                         "size": "S",
@@ -376,6 +383,7 @@
             },
             {
                 "color": "Xanh",
+                "colorName": "Xanh",
                 "size": [
                     {
                         "size": "S",
@@ -424,7 +432,7 @@
         ],
         "image": "clothes-6-main.webp",
         "category": "Dam",
-        "type": "DamOm"
+        "categoryName": "Đầm"
     },
     {
         "name": "Đầm ôm cổ cao tay loe họa tiêt kim tuyến",
@@ -434,6 +442,7 @@
         "quantity": [
             {
                 "color": "Nau",
+                "colorName": "Nâu",
                 "size": [
                     {
                         "size": "S",
@@ -479,7 +488,7 @@
         ],
         "image": "clothes-7-main.webp",
         "category": "Dam",
-        "type": "DamOm"
+        "categoryName": "Đầm"
     },
     {
         "name": "Áo sơ mi cách điệu họa tiết Blue Pattern",
@@ -489,6 +498,7 @@
         "quantity": [
             {
                 "color": "XanhLam",
+                "colorName": "Xanh lam",
                 "size": [
                     {
                         "size": "S",
@@ -538,7 +548,7 @@
         ],
         "image": "clothes-8-main.webp",
         "category": "Ao",
-        "type": "AoSoMi"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo sơ mi tay bồng cổ cách điệu",
@@ -548,6 +558,7 @@
         "quantity": [
             {
                 "color": "Trang",
+                "colorName": "Trắng",
                 "size": [
                     {
                         "size": "S",
@@ -596,7 +607,7 @@
         ],
         "image": "clothes-9-main.webp",
         "category": "Ao",
-        "type": "AoSoMi"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo ren cổ tròn sang trọng",
@@ -606,6 +617,7 @@
         "quantity": [
             {
                 "color": "Trang",
+                "colorName": "Trắng",
                 "size": [
                     {
                         "size": "S",
@@ -653,7 +665,7 @@
         ],
         "image": "clothes-10-main.webp",
         "category": "Ao",
-        "type": "AoKieu"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo kiểu sát nách cổ thuyền thắt nơ duyên dáng nữ tính cùng chất liệu ren tinh tế, thanh lịch",
@@ -663,6 +675,7 @@
         "quantity": [
             {
                 "color": "Be",
+                "colorName": "Be",
                 "size": [
                     {
                         "size": "S",
@@ -709,6 +722,7 @@
             },
             {
                 "color": "Trang",
+                "colorName": "Trắng",
                 "size": [
                     {
                         "size": "S",
@@ -756,7 +770,7 @@
         ],
         "image": "clothes-11-main.webp",
         "category": "Ao",
-        "type": "AoKieu"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo vest dáng ngắn cổ tym họa tiết",
@@ -766,6 +780,7 @@
         "quantity": [
             {
                 "color": "Nau",
+                "colorName": "Nâu",
                 "size": [
                     {
                         "size": "S",
@@ -810,13 +825,12 @@
                     "clothes-12-main-3.webp",
                     "clothes-12-main-4.webp",
                     "clothes-12-main-5.webp"
-        
                 ]
             }
         ],
         "image": "clothes-12-main.webp",
         "category": "Ao",
-        "type": "AoVest"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo vest dáng ngắn xòe cổ V houndstooth",
@@ -826,6 +840,7 @@
         "quantity": [
             {
                 "color": "Nau",
+                "colorName": "Nâu",
                 "size": [
                     {
                         "size": "S",
@@ -869,13 +884,12 @@
                     "clothes-13-main-2.webp",
                     "clothes-13-main-3.webp",
                     "clothes-13-main-4.webp"
-        
                 ]
             }
         ],
         "image": "clothes-13-main.webp",
         "category": "Ao",
-        "type": "AoVest"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo khoác phao phối nhung kèm mũ",
@@ -885,6 +899,7 @@
         "quantity": [
             {
                 "color": "Do",
+                "colorName": "Đỏ",
                 "size": [
                     {
                         "size": "S",
@@ -928,13 +943,12 @@
                     "clothes-14-main-2.webp",
                     "clothes-14-main-3.webp",
                     "clothes-14-main-4.webp"
-        
                 ]
             }
         ],
         "image": "clothes-14-main.webp",
         "category": "Ao",
-        "type": "AoKhoac"
+        "categoryName": "Áo"
     },
     {
         "name": "(2 loại) Áo khoác phao có mũ kèm belt Blacky",
@@ -944,6 +958,7 @@
         "quantity": [
             {
                 "color": "Den",
+                "colorName": "Đen",
                 "size": [
                     {
                         "size": "S",
@@ -989,6 +1004,7 @@
             },
             {
                 "color": "Den-DE1",
+                "colorName": "Đen óng",
                 "size": [
                     {
                         "size": "S",
@@ -1035,7 +1051,7 @@
         ],
         "image": "clothes-15-main.webp",
         "category": "Ao",
-        "type": "AoKhoac"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo dài Cát Tường",
@@ -1045,6 +1061,7 @@
         "quantity": [
             {
                 "color": "Do",
+                "colorName": "Đỏ",
                 "size": [
                     {
                         "size": "S",
@@ -1093,7 +1110,7 @@
         ],
         "image": "clothes-16-main.webp",
         "category": "Ao",
-        "type": "AoDai"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo dài kiểu tay cánh hồng Taffeta Lan Chi",
@@ -1103,6 +1120,7 @@
         "quantity": [
             {
                 "color": "Trang",
+                "colorName": "Trắng",
                 "size": [
                     {
                         "size": "S",
@@ -1143,7 +1161,7 @@
         ],
         "image": "clothes-17-main.webp",
         "category": "Ao",
-        "type": "AoDai"
+        "categoryName": "Áo"
     },
     {
         "name": "Áo dài An Khuê",
@@ -1153,6 +1171,7 @@
         "quantity": [
             {
                 "color": "Xanh",
+                "colorName": "Xanh",
                 "size": [
                     {
                         "size": "S",
@@ -1193,7 +1212,7 @@
         ],
         "image": "clothes-18-main.webp",
         "category": "Ao",
-        "type": "AoDai"
+        "categoryName": "Áo"
     },
     {
         "name": "Quần baggy Mood in Red",
@@ -1203,6 +1222,7 @@
         "quantity": [
             {
                 "color": "Do",
+                "colorName": "Đỏ",
                 "size": [
                     {
                         "size": "S",
@@ -1251,7 +1271,7 @@
         ],
         "image": "clothes-19-main.webp",
         "category": "Quan",
-        "type": "Quan"
+        "categoryName": "Quần"
     },
     {
         "name": "Quần baggy dáng suông họa tiết Fret Pattern",
@@ -1261,6 +1281,7 @@
         "quantity": [
             {
                 "color": "Nau",
+                "colorName": "Nâu",
                 "size": [
                     {
                         "size": "S",
@@ -1307,7 +1328,7 @@
         ],
         "image": "clothes-20-main.webp",
         "category": "Quan",
-        "type": "Quan"
+        "categoryName": "Quần"
     },
     {
         "name": "Chân váy ôm đính hoa eo",
@@ -1317,6 +1338,7 @@
         "quantity": [
             {
                 "color": "Den",
+                "colorName": "Đen",
                 "size": [
                     {
                         "size": "S",
@@ -1365,7 +1387,7 @@
         ],
         "image": "clothes-21-main.webp",
         "category": "ChanVay",
-        "type": "ChanVayOm"
+        "categoryName": "Chân váy"
     },
     {
         "name": "Chân váy nhung ôm đuôi cá",
@@ -1375,6 +1397,7 @@
         "quantity": [
             {
                 "color": "Den",
+                "colorName": "Đen",
                 "size": [
                     {
                         "size": "S",
@@ -1422,7 +1445,7 @@
         ],
         "image": "clothes-22-main.webp",
         "category": "ChanVay",
-        "type": "ChanVayOm"
+        "categoryName": "Chân váy"
     },
     {
         "name": "Chân váy xòe xếp ly Lilac",
@@ -1432,6 +1455,7 @@
         "quantity": [
             {
                 "color": "Tim",
+                "colorName": "Tím",
                 "size": [
                     {
                         "size": "S",
@@ -1480,7 +1504,7 @@
         ],
         "image": "clothes-23-main.webp",
         "category": "ChanVay",
-        "type": "ChanVayXoe"
+        "categoryName": "Chân váy"
     },
     {
         "name": "Chân váy xòe ren xếp tầng",
@@ -1490,6 +1514,7 @@
         "quantity": [
             {
                 "color": "Be",
+                "colorName": "Be",
                 "size": [
                     {
                         "size": "S",
@@ -1533,13 +1558,12 @@
                     "clothes-24-main-2.webp",
                     "clothes-24-main-3.webp",
                     "clothes-24-main-4.webp"
-        
                 ]
             }
         ],
         "image": "clothes-24-main.webp",
         "category": "ChanVay",
-        "type": "ChanVayXoe"
+        "categoryName": "Chân váy"
     },
     {
         "name": "Jumpsuit tay bồng hoạ tiết",
@@ -1549,6 +1573,7 @@
         "quantity": [
             {
                 "color": "XanhLam",
+                "colorName": "Xanh lam",
                 "size": [
                     {
                         "size": "S",
@@ -1588,13 +1613,12 @@
                     "clothes-25-main-2.webp",
                     "clothes-25-main-3.webp",
                     "clothes-25-main-4.webp"
-        
                 ]
             }
         ],
         "image": "clothes-25-main.webp",
         "category": "Jumpsuit",
-        "type": "Jumpsuit"
+        "categoryName": "Jumpsuit"
     },
     {
         "name": "jumpsuit sát nách quần suông Elegant",
@@ -1604,6 +1628,7 @@
         "quantity": [
             {
                 "color": "Den",
+                "colorName": "Đen",
                 "size": [
                     {
                         "size": "S",
@@ -1643,12 +1668,11 @@
                     "clothes-26-main-2.webp",
                     "clothes-26-main-3.webp",
                     "clothes-26-main-4.webp"
-        
                 ]
             }
         ],
         "image": "clothes-26-main.webp",
         "category": "Jumpsuit",
-        "type": "Jumpsuit"
+        "categoryName": "Jumpsuit"
     }
 ]

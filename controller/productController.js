@@ -95,7 +95,7 @@ exports.getAllProducts = async (req, res, next) => {
     }
 }
 
-exports.createProduct = async (req, res, next) => {
+exports.createProduct = async (req, res) => {
     try {
         const newProduct = await Product.create(req.body)
 
@@ -274,10 +274,33 @@ exports.updateProduct = async (req, res) => {
     }
 }
 
-exports.getCategories = async (req, res) => {
-    try {
-        const categories = await Product.distinct('category');
+// exports.getCategories = async (req, res) => {
+//     try {
+//         const categories = await Product.distinct('category');
 
+        // res.status(200).json({
+        //     status: 'success',
+        //     categories
+        // });
+//     } catch (err) {
+//         res.status(500).json({
+//             status: 'error',
+//             message: err.message
+//         });
+//     }
+// };
+exports.getCategories = async (req, res, next) => {
+    try {
+        const categories = await await Product.aggregate([
+            { $group: {
+              _id: { category: "$category", categoryName: "$categoryName" }
+            }},
+            { $project: {
+              category: "$_id.category",
+              categoryName: "$_id.categoryName",
+              _id: 0
+            }}
+          ]);
         res.status(200).json({
             status: 'success',
             categories
@@ -289,7 +312,6 @@ exports.getCategories = async (req, res) => {
         });
     }
 };
-
 exports.getColors = async (req, res) => {
     try {
         const colors = await Product.aggregate([

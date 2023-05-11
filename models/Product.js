@@ -4,7 +4,7 @@ const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'sản phẩm phải có tên '],
-        unique : true
+        unique: true
     },
     description: {
         type: String,
@@ -20,6 +20,11 @@ const productSchema = new mongoose.Schema({
     quantity: [
         {
             color: {
+                type: String,
+                required: [true, 'sản phẩm phải có màu'],
+                unique: true
+            },
+            colorName: {
                 type: String,
                 required: [true, 'sản phẩm phải có màu']
             },
@@ -40,24 +45,25 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, 'sản phẩm thuộc loại ?']
     },
-    type: {
+    categoryName: {
         type: String,
         required: true
     },
     slug: String,
-    subQuantity : Number,
-    newPrice : Number
+    subQuantity: Number,
+    newPrice: Number
 })
 
 productSchema.pre("save", function (next) {
-    this.slug = slugify(this.name, {locale: 'vi',lower: true});
+    console.log(this.constructor)
+    this.slug = slugify(this.name, { locale: 'vi', lower: true });
     next()
 })
 
-productSchema.pre("save" , function(next) {
-    let sub = 0 
-    this.quantity.forEach((each , index) => {
-        each.size.forEach((el , idx) => {
+productSchema.pre("save", function (next) {
+    let sub = 0
+    this.quantity.forEach((each, index) => {
+        each.size.forEach((el, idx) => {
             sub = sub + el.quantity
         })
     })
@@ -65,7 +71,7 @@ productSchema.pre("save" , function(next) {
     next()
 })
 
-productSchema.pre("save" , function(next) {
+productSchema.pre("save", function (next) {
     if (this.sale) {
         this.newPrice = this.oldPrice * this.sale
     }
