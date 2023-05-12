@@ -72,6 +72,33 @@ exports.getImageProduct = async (req, res, next) => {
     }
     next()
 };
+
+exports.createProduct = async (req, res) => {
+    try {
+        const { 
+            name,
+            description,
+            oldPrice,
+            sale,
+            quantity,
+            image,
+            categoryName
+        } = req.body
+        console.log(name)
+        // const newProduct = await Product.create(req.body)
+
+        res.status(201).json({
+            status: 'success',
+            body : req.body
+        })
+    }
+    catch (err) {
+        res.status(400).json({
+            status: 'error',
+            message: err.message
+        })
+    }
+}
 exports.getAllProducts = async (req, res, next) => {
     try {
         const feature = new APIFeatures(Product.find(), req.query)
@@ -94,24 +121,6 @@ exports.getAllProducts = async (req, res, next) => {
         })
     }
 }
-
-exports.createProduct = async (req, res) => {
-    try {
-        const newProduct = await Product.create(req.body)
-
-        res.status(201).json({
-            status: 'success',
-            newProduct
-        })
-    }
-    catch (err) {
-        res.status(400).json({
-            status: 'error',
-            message: err.message
-        })
-    }
-}
-
 
 exports.getProduct = async (req, res, next) => {
     try {
@@ -228,7 +237,7 @@ exports.updateProduct = async (req, res) => {
             oldPrice,
             sale,
             quantity,
-            category,
+            categoryName,
             type
         } = req.body
         console.log('helooooooo')
@@ -239,15 +248,11 @@ exports.updateProduct = async (req, res) => {
         updateProduct.oldPrice = +oldPrice
         updateProduct.sale = +sale
         updateProduct.quantity = [...fixQuantity]
-        updateProduct.category = category
+        updateProduct.categoryName = categoryName
         updateProduct.type = type
         if (req.files['imageMainProduct']) {
             updateProduct.image = req.files['imageMainProduct'][0].filename
         }
-        // updateProduct.quantity = [
-        //     ...updateProduct.quantity,
-
-        // ]
         updateProduct.quantity.forEach((each, idx) => {
             if (req.files[`imageSlideShow${each.color}`]) {
                 console.log(req.files[`imageSlideShow${each.color}`])
@@ -258,7 +263,6 @@ exports.updateProduct = async (req, res) => {
                 each.imageSlideShows = [...each.imageSlideShows, ...arrayImage]
             }
         })
-        // console.log(updateProduct.quantity)
         await updateProduct.save({ validateBeforeSave: 'false' })
 
         res.status(200).json({
@@ -274,33 +278,10 @@ exports.updateProduct = async (req, res) => {
     }
 }
 
-// exports.getCategories = async (req, res) => {
-//     try {
-//         const categories = await Product.distinct('category');
-
-        // res.status(200).json({
-        //     status: 'success',
-        //     categories
-        // });
-//     } catch (err) {
-//         res.status(500).json({
-//             status: 'error',
-//             message: err.message
-//         });
-//     }
-// };
-exports.getCategories = async (req, res, next) => {
+exports.getCategories = async (req, res) => {
     try {
-        const categories = await await Product.aggregate([
-            { $group: {
-              _id: { category: "$category", categoryName: "$categoryName" }
-            }},
-            { $project: {
-              category: "$_id.category",
-              categoryName: "$_id.categoryName",
-              _id: 0
-            }}
-          ]);
+        const categories = await Product.distinct('categoryName');
+
         res.status(200).json({
             status: 'success',
             categories
@@ -312,6 +293,29 @@ exports.getCategories = async (req, res, next) => {
         });
     }
 };
+// exports.getCategories = async (req, res, next) => {
+//     try {
+//         const categories = await await Product.aggregate([
+//             { $group: {
+//               _id: { category: "$category", categoryName: "$categoryName" }
+//             }},
+//             { $project: {
+//               category: "$_id.category",
+//               categoryName: "$_id.categoryName",
+//               _id: 0
+//             }}
+//           ]);
+//         res.status(200).json({
+//             status: 'success',
+//             categories
+//         });
+//     } catch (err) {
+//         res.status(500).json({
+//             status: 'error',
+//             message: err.message
+//         });
+//     }
+// };
 exports.getColors = async (req, res) => {
     try {
         const colors = await Product.aggregate([
@@ -323,7 +327,7 @@ exports.getColors = async (req, res) => {
             },
             {
                 $group: {
-                    _id: '$quantity.color'
+                    _id: '$quantity.colorName'
                 }
             }
         ]);

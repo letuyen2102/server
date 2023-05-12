@@ -21,8 +21,6 @@ const productSchema = new mongoose.Schema({
         {
             color: {
                 type: String,
-                required: [true, 'sản phẩm phải có màu'],
-                unique: true
             },
             colorName: {
                 type: String,
@@ -41,13 +39,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, 'sản phẩm phải có ảnh']
     },
-    category: {
-        type: String,
-        required: [true, 'sản phẩm thuộc loại ?']
-    },
+    category: String,
     categoryName: {
         type: String,
-        required: true
+        required: [true, 'sản phẩm thuộc loại ?']
     },
     slug: String,
     subQuantity: Number,
@@ -55,7 +50,12 @@ const productSchema = new mongoose.Schema({
 })
 
 productSchema.pre("save", function (next) {
-    console.log(this.constructor)
+    this.quantity.forEach(item => {
+        item.colorName = item.colorName.trim().toLowerCase();
+        item.color = slugify(item.colorName, { locale: 'vi', lower: true });
+    });
+    this.categoryName = this.categoryName.trim().toLowerCase();
+    this.category = slugify(this.categoryName, { locale: 'vi', lower: true });
     this.slug = slugify(this.name, { locale: 'vi', lower: true });
     next()
 })

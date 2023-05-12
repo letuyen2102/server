@@ -6,7 +6,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Do",
                 "colorName": "Đỏ",
                 "size": [
                     {
@@ -56,7 +55,6 @@
             }
         ],
         "image": "clothes-1-main.webp",
-        "category": "Dam",
         "categoryName": "Đầm"
     },
     {
@@ -66,7 +64,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Be",
                 "colorName": "Be",
                 "size": [
                     {
@@ -115,7 +112,6 @@
             }
         ],
         "image": "clothes-2-main.webp",
-        "category": "Dam",
         "categoryName": "Đầm"
     },
     {
@@ -125,7 +121,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Ke",
                 "colorName": "Kẻ",
                 "size": [
                     {
@@ -174,7 +169,6 @@
             }
         ],
         "image": "clothes-3-main.webp",
-        "category": "Dam",
         "categoryName": "Đầm"
     },
     {
@@ -184,7 +178,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Vang",
                 "colorName": "Vàng",
                 "size": [
                     {
@@ -234,7 +227,6 @@
             }
         ],
         "image": "clothes-4-main.webp",
-        "category": "Dam",
         "categoryName": "Đầm"
     },
     {
@@ -244,7 +236,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Xanh",
                 "colorName": "Xanh",
                 "size": [
                     {
@@ -284,7 +275,6 @@
                 ]
             },
             {
-                "color": "Hong",
                 "colorName": "Hồng",
                 "size": [
                     {
@@ -324,7 +314,6 @@
             }
         ],
         "image": "clothes-5-main.webp",
-        "category": "Dam",
         "categoryName": "Đầm"
     },
     {
@@ -334,7 +323,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Den",
                 "colorName": "Đen",
                 "size": [
                     {
@@ -382,7 +370,6 @@
                 ]
             },
             {
-                "color": "Xanh",
                 "colorName": "Xanh",
                 "size": [
                     {
@@ -431,7 +418,6 @@
             }
         ],
         "image": "clothes-6-main.webp",
-        "category": "Dam",
         "categoryName": "Đầm"
     },
     {
@@ -441,7 +427,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Nau",
                 "colorName": "Nâu",
                 "size": [
                     {
@@ -487,7 +472,6 @@
             }
         ],
         "image": "clothes-7-main.webp",
-        "category": "Dam",
         "categoryName": "Đầm"
     },
     {
@@ -497,7 +481,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "XanhLam",
                 "colorName": "Xanh lam",
                 "size": [
                     {
@@ -547,7 +530,6 @@
             }
         ],
         "image": "clothes-8-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -557,7 +539,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Trang",
                 "colorName": "Trắng",
                 "size": [
                     {
@@ -606,7 +587,6 @@
             }
         ],
         "image": "clothes-9-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -616,7 +596,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Trang",
                 "colorName": "Trắng",
                 "size": [
                     {
@@ -664,7 +643,6 @@
             }
         ],
         "image": "clothes-10-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -674,7 +652,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Be",
                 "colorName": "Be",
                 "size": [
                     {
@@ -721,7 +698,6 @@
                 ]
             },
             {
-                "color": "Trang",
                 "colorName": "Trắng",
                 "size": [
                     {
@@ -769,7 +745,6 @@
             }
         ],
         "image": "clothes-11-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -779,7 +754,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Nau",
                 "colorName": "Nâu",
                 "size": [
                     {
@@ -829,7 +803,6 @@
             }
         ],
         "image": "clothes-12-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -839,7 +812,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Nau",
                 "colorName": "Nâu",
                 "size": [
                     {
@@ -888,7 +860,6 @@
             }
         ],
         "image": "clothes-13-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -898,7 +869,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Do",
                 "colorName": "Đỏ",
                 "size": [
                     {
@@ -947,7 +917,6 @@
             }
         ],
         "image": "clothes-14-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -957,7 +926,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Den",
                 "colorName": "Đen",
                 "size": [
                     {
@@ -1003,7 +971,6 @@
                 ]
             },
             {
-                "color": "Den-DE1",
                 "colorName": "Đen óng",
                 "size": [
                     {
@@ -1050,7 +1017,6 @@
             }
         ],
         "image": "clothes-15-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -1060,7 +1026,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Do",
                 "colorName": "Đỏ",
                 "size": [
                     {
@@ -1109,7 +1074,6 @@
             }
         ],
         "image": "clothes-16-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -1119,7 +1083,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Trang",
                 "colorName": "Trắng",
                 "size": [
                     {
@@ -1160,7 +1123,6 @@
             }
         ],
         "image": "clothes-17-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -1170,7 +1132,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Xanh",
                 "colorName": "Xanh",
                 "size": [
                     {
@@ -1211,7 +1172,6 @@
             }
         ],
         "image": "clothes-18-main.webp",
-        "category": "Ao",
         "categoryName": "Áo"
     },
     {
@@ -1221,7 +1181,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Do",
                 "colorName": "Đỏ",
                 "size": [
                     {
@@ -1270,7 +1229,6 @@
             }
         ],
         "image": "clothes-19-main.webp",
-        "category": "Quan",
         "categoryName": "Quần"
     },
     {
@@ -1280,7 +1238,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Nau",
                 "colorName": "Nâu",
                 "size": [
                     {
@@ -1327,7 +1284,6 @@
             }
         ],
         "image": "clothes-20-main.webp",
-        "category": "Quan",
         "categoryName": "Quần"
     },
     {
@@ -1337,7 +1293,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Den",
                 "colorName": "Đen",
                 "size": [
                     {
@@ -1386,7 +1341,6 @@
             }
         ],
         "image": "clothes-21-main.webp",
-        "category": "ChanVay",
         "categoryName": "Chân váy"
     },
     {
@@ -1396,7 +1350,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Den",
                 "colorName": "Đen",
                 "size": [
                     {
@@ -1444,7 +1397,6 @@
             }
         ],
         "image": "clothes-22-main.webp",
-        "category": "ChanVay",
         "categoryName": "Chân váy"
     },
     {
@@ -1454,7 +1406,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Tim",
                 "colorName": "Tím",
                 "size": [
                     {
@@ -1503,7 +1454,6 @@
             }
         ],
         "image": "clothes-23-main.webp",
-        "category": "ChanVay",
         "categoryName": "Chân váy"
     },
     {
@@ -1513,7 +1463,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Be",
                 "colorName": "Be",
                 "size": [
                     {
@@ -1562,7 +1511,6 @@
             }
         ],
         "image": "clothes-24-main.webp",
-        "category": "ChanVay",
         "categoryName": "Chân váy"
     },
     {
@@ -1572,7 +1520,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "XanhLam",
                 "colorName": "Xanh lam",
                 "size": [
                     {
@@ -1617,7 +1564,6 @@
             }
         ],
         "image": "clothes-25-main.webp",
-        "category": "Jumpsuit",
         "categoryName": "Jumpsuit"
     },
     {
@@ -1627,7 +1573,6 @@
         "sale": 0.5,
         "quantity": [
             {
-                "color": "Den",
                 "colorName": "Đen",
                 "size": [
                     {
@@ -1672,7 +1617,6 @@
             }
         ],
         "image": "clothes-26-main.webp",
-        "category": "Jumpsuit",
         "categoryName": "Jumpsuit"
     }
 ]
