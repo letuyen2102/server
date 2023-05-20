@@ -3,7 +3,8 @@ const APIFeatures = require('./query')
 // const upload = require('../middleware/uploadImage')
 const multer = require('multer');
 const path = require('path')
-const appRoot = require('app-root-path')
+const appRoot = require('app-root-path');
+const { default: slugify } = require('slugify');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -11,7 +12,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix);
+        cb(null, file.fieldname + '-' + uniqueSuffix)
     }
 });
 
@@ -72,7 +73,7 @@ exports.getImageProduct = async (req, res, next) => {
     }
     next()
 };
-
+exports.uploadImageToCreateProduct = upload.any()
 exports.createProduct = async (req, res) => {
     try {
         const { 
@@ -81,15 +82,38 @@ exports.createProduct = async (req, res) => {
             oldPrice,
             sale,
             quantity,
-            image,
             categoryName
         } = req.body
-        console.log(name)
-        // const newProduct = await Product.create(req.body)
 
+        let fixQuantity = JSON.parse(quantity)
+        const createProd = new Product({
+            name ,
+            description ,
+            oldPrice ,
+            sale ,
+            quantity : fixQuantity ,
+            categoryName
+        })
+        if (req.files) {
+            req.files.forEach((each,idx) => {
+                if (each.fieldname === 'imageMainProduct') {
+                    createProd.image = each.filename
+                }
+            })
+            createProd.quantity.forEach((each, idx) => {
+                const arrayImage = req.files.filter((mm,nn) => {
+                    return mm.fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`
+                }).map((hh,jj) => {
+                    return hh.filename
+                })
+                console.log(arrayImage)
+                each.imageSlideShows = [...arrayImage]
+            })
+        }
+        await createProd.save()
         res.status(201).json({
             status: 'success',
-            body : req.body
+            product : createProd
         })
     }
     catch (err) {
@@ -238,7 +262,6 @@ exports.updateProduct = async (req, res) => {
             sale,
             quantity,
             categoryName,
-            type
         } = req.body
         console.log('helooooooo')
         const updateProduct = await Product.findById(req.params.idProduct)
@@ -249,7 +272,6 @@ exports.updateProduct = async (req, res) => {
         updateProduct.sale = +sale
         updateProduct.quantity = [...fixQuantity]
         updateProduct.categoryName = categoryName
-        updateProduct.type = type
         if (req.files['imageMainProduct']) {
             updateProduct.image = req.files['imageMainProduct'][0].filename
         }

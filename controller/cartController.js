@@ -74,7 +74,7 @@ exports.getCartMe = async (req, res) => {
 
 exports.createCart = async (req, res) => {
     try {
-        const { productId, quantity, color, size, image } = req.body;
+        const { productId, quantity, color, size, image , colorName} = req.body;
         const userId = req.user._id;
         const product = await Product.findById(productId);
         if (!product) {
@@ -84,11 +84,11 @@ exports.createCart = async (req, res) => {
         if (!cart) {
             cart = new Cart({ user: userId, items: [] });
         }
-        let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size);
+        let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size && item.colorName === colorName);
         if (item) {
             item.quantity += parseInt(quantity);
         } else {
-            cart.items.push({ product: product._id, quantity: parseInt(quantity), color, size, image });
+            cart.items.push({ product: product._id, quantity: parseInt(quantity), color, size, image ,colorName});
         }
         await cart.save();
 
@@ -101,7 +101,7 @@ exports.createCart = async (req, res) => {
 
 exports.decCart = async (req, res) => {
     try {
-        const { productId, color, size } = req.body;
+        const { productId, color, size , colorName} = req.body;
         const userId = req.user._id;
 
         const product = await Product.findById(productId);
@@ -113,7 +113,7 @@ exports.decCart = async (req, res) => {
             return res.status(404).json({ message: 'Giỏ hàng không tồn tại' });
         }
 
-        let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size);
+        let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size  && item.colorName === colorName);
         if (!item) {
             return res.status(404).json({ message: 'Sản phẩm không tồn tại trong giỏ hàng' });
         }
@@ -121,7 +121,7 @@ exports.decCart = async (req, res) => {
         if (item.quantity > 1) {
             item.quantity--;
         } else {
-            cart.items = cart.items.filter(item => !item.product.equals(product._id) || item.color !== color || item.size !== size);
+            cart.items = cart.items.filter(item => !item.product.equals(product._id) || item.color !== color || item.size !== size  || item.colorName !== colorName);
         }
 
         await cart.save();
@@ -135,7 +135,7 @@ exports.decCart = async (req, res) => {
 
 exports.incCart = async (req, res) => {
     try {
-        const { productId, color, size } = req.body;
+        const { productId, color, size , colorName} = req.body;
         const userId = req.user._id;
 
         const product = await Product.findById(productId);
@@ -146,11 +146,11 @@ exports.incCart = async (req, res) => {
         if (!cart) {
             cart = new Cart({ user: userId, items: [] });
         }
-        let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size);
+        let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size  && item.colorName === colorName);
         if (item) {
             item.quantity += 1;
         } else {
-            cart.items.push({ product: product._id, quantity: 1, color, size });
+            cart.items.push({ product: product._id, quantity: 1, color, size , colorName});
         }
 
         await cart.save();
@@ -165,7 +165,7 @@ exports.incCart = async (req, res) => {
 
 exports.clearEachCart = async (req, res) => {
     try {
-        const { productId, color, size } = req.body
+        const { productId, color, size , colorName} = req.body
         const userId = req.user._id
         const checkProduct = await Product.findById(productId)
 
@@ -179,7 +179,7 @@ exports.clearEachCart = async (req, res) => {
         if (!cart) {
             cart = new Cart({ user: userId, items: [] });
         }
-        let item = cart.items.findIndex(item => item.product.equals(checkProduct._id) && item.color === color && item.size === size);
+        let item = cart.items.findIndex(item => item.product.equals(checkProduct._id) && item.color === color && item.size === size  && item.colorName === colorName);
         console.log(item)
 
         cart.items.splice(item, 1)
@@ -206,16 +206,16 @@ exports.createManyCart = async (req, res) => {
             cart = new Cart({ user: userId, items: [] });
         }
         for (let i = 0; i < items.length; i++) {
-            const { productId, quantity, color, size, image } = items[i];
+            const { productId, quantity, color, size, image , colorName} = items[i];
             const product = await Product.findById(productId);
             if (!product) {
                 return res.status(404).json({ message: `Sản phẩm ${productId} không tồn tại` });
             }
-            let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size);
+            let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size  && item.colorName === colorName);
             if (item) {
                 item.quantity += parseInt(quantity);
             } else {
-                cart.items.push({ product: product._id, quantity: parseInt(quantity), color, size, image });
+                cart.items.push({ product: product._id, quantity: parseInt(quantity), color, size, image , colorName});
             }
         }
         await cart.save();

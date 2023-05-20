@@ -16,6 +16,7 @@ const bookingSchema = new mongoose.Schema({
                 type: Number
             },
             color: String,
+            colorName: String,
             size: String,
             image: String,
             total: Number
@@ -28,7 +29,8 @@ const bookingSchema = new mongoose.Schema({
         enum: [
             "success",
             "processing",
-            "cancel"
+            "cancel",
+            "required"
         ]
     },
     name: String,
@@ -49,7 +51,6 @@ bookingSchema.pre("save", async function (next) {
     await booking.populate('user')
     await booking.populate('products.product')
     booking.products.forEach((el, idx) => {
-        // booking.products[idx].total =  booking.products[idx].quantity *  booking.products[idx].product.newPrice
         el.total = el.quantity * el.product.newPrice
     })
     booking.subTotal = booking.products.reduce(

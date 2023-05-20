@@ -5,6 +5,9 @@ const bookingController = require('../controller/bookingController')
 const Booking = require('../models/Booking')
 const Cart = require('../models/Cart')
 const router = express.Router()
+
+router
+    .get('/getAllBookings' , authController.protect , authController.restrictTo('admin') , bookingController.getAllBookings)
 router
     .route('/createBooking')
     .post(authController.protect, bookingController.createBooking)
@@ -15,7 +18,12 @@ router
     .route('/getBooking/:idBooking')
     .get(bookingController.getBooking)
 
-
+router
+    .patch('/userCancelBooking/:idBooking' , authController.protect , bookingController.userCancelBooking)
+router
+    .patch('/acceptOrder/:idBooking' , authController.protect , authController.restrictTo('admin') , bookingController.acceptOrder)
+router
+    .patch('/refuseOrder/:idBooking' , authController.protect , authController.restrictTo('admin') , bookingController.refuseOrder)
 
 router.post('/create_payment_url', authController.protect, async function (req, res, next) {
     console.log("HUHUUHUUHU")

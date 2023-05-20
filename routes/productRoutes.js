@@ -15,16 +15,15 @@ router
 router
     .get('/getProductsByCategory', productController.getProductsByCategory)
 router
-    .route('/')
-    .get(productController.getAllProducts)
-    .post(productController.createProduct)
-router
     .get('/getProductById/:ID', productController.getProductById)
 
 router
     .route('/:slug')
     .get(productController.getProduct)
-
+router
+    .route('/')
+    .get(productController.getAllProducts)
+    .post(productController.uploadImageToCreateProduct , productController.getImageProduct,productController.createProduct)
 router
     .route('/:idProduct')
     .patch(productController.uploadImageMainProduct, productController.getImageProduct, productController.updateProduct)
