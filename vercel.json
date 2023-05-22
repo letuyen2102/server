@@ -1,9 +1,15 @@
 {
-    "rewrites": [
-      { "source": "/myway/api/products(.*)", "destination": "/myway/api/products$1" },
-      { "source": "/myway/api/users(.*)", "destination": "/myway/api/users$1" },
-      { "source": "/myway/api/carts(.*)", "destination": "/myway/api/carts$1" },
-      { "source": "/myway/api/bookings(.*)", "destination": "/myway/api/bookings$1" }
+    "version": 2,
+    "builds": [
+      {
+        "src": "./server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
     ]
   }
-  
