@@ -217,6 +217,7 @@ exports.createManyCart = async (req, res) => {
             } else {
                 cart.items.push({ product: product._id, quantity: parseInt(quantity), color, size, image , colorName});
             }
+            console.log(`step ${i}`)
         }
         await cart.save();
 

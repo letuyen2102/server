@@ -3,7 +3,8 @@ const path = require('path')
 const appRoot = require('app-root-path')
 
 const APIFeatures = require('./query');
-const User = require('../models/User')
+const User = require('../models/User');
+const Booking = require('../models/Booking');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -44,13 +45,7 @@ const filterObj = (obj, ...allowedFields) => {
 };
 exports.getAllUser = async (req, res, next) => {
     try {
-        const feature = new APIFeatures(User.find(), req.query)
-            .filter()
-            .sort()
-            .limitFields()
-            .paginate()
-
-        const users = await feature.query
+        const users = await User.find({role : 'user'})
 
         res.status(200).json({
             status: 'success',
@@ -190,12 +185,18 @@ exports.updateUser = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
     try {
-        const newUser = await User.findByIdAndDelete(req.params.id)
-
+        const newUser = await User.findOne({_id : req.params.id , role: 'user'})
         if (!newUser) {
             throw new Error('không thấy người dùng này')
         }
+        else {
+            const bookingFilter = await Booking.find({user : newUser , status : 'processing'})
+            if (bookingFilter.length > 0) {
+                throw new Error('Người dùng còn đơn hàng chưa xử lý')
+            }
 
+            await User.deleteOne({_id : newUser._id})
+        }
         res.status(204).json({
             status: 'success',
             data: null

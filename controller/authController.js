@@ -16,7 +16,7 @@ const createSendToken = (user, statusCode, res) => {
         expires: new Date(
             Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
         ),
-        httpOnly: true,
+        // httpOnly: true,
         // secure: true
     };
     // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
@@ -175,6 +175,27 @@ exports.login = async (req, res, next) => {
     }
 }
 
+exports.loginAsAdmin = async (req , res) => {
+    try {
+        if (!req.body.email || !req.body.password) {
+            throw new Error('Cung cấp tài khoản và mật khẩu !')
+        }
+        const user = await User.findOne({ $or: [{ email: req.body.email }, { phone: req.body.email }] }).select('+password');
+
+
+        if (!user || !(await user.correctPassword(req.body.password, user.password)) || user.role === 'user') {
+            throw new Error('Thông tin admin không chính xác')
+        }
+
+        createSendToken(user, 200, res)
+    }
+    catch(err){
+        res.status(400).json({
+            status: 'error',
+            message: err.message
+        })
+    }
+}
 
 exports.protect = async (req, res, next) => {
     try {

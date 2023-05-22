@@ -186,81 +186,30 @@ exports.refuseOrder = async (req , res) => {
     }
 }
 
-exports.createPayment = (req, res) => {
-    const partnerCode = "MOMO";
-    const accessKey = "F8BBA842ECF85";
-    const secretkey = "K951B6PE1waDMi640xX08PD3vg6EkVlz";
-    const requestId = partnerCode + new Date().getTime();
-    const orderId = requestId;
-    const orderInfo = "pay with MoMo";
-    const redirectUrl = "https://momo.vn/return";
-    const ipnUrl = "https://callback.url/notify";
-    const amount = "50000";
-    const requestType = "captureWallet"
-    const extraData = "";
-
-    const rawSignature = "accessKey=" + accessKey + "&amount=" + amount + "&extraData=" + extraData + "&ipnUrl=" + ipnUrl + "&orderId=" + orderId + "&orderInfo=" + orderInfo + "&partnerCode=" + partnerCode + "&redirectUrl=" + redirectUrl + "&requestId=" + requestId + "&requestType=" + requestType;
-
-    const signature = crypto.createHmac('sha256', secretkey)
-        .update(rawSignature)
-        .digest('hex');
-
-    const requestBody = JSON.stringify({
-        partnerCode: partnerCode,
-        accessKey: accessKey,
-        requestId: requestId,
-        amount: amount,
-        orderId: orderId,
-        orderInfo: orderInfo,
-        redirectUrl: redirectUrl,
-        ipnUrl: ipnUrl,
-        extraData: extraData,
-        requestType: requestType,
-        signature: signature,
-        lang: 'en'
-    });
-
-    const options = {
-        hostname: 'test-payment.momo.vn',
-        port: 443,
-        path: '/v2/gateway/api/create',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(requestBody)
+exports.getBookingBaseOnUser = async (req , res ) => {
+    try {
+        const idUser = req.params.idUser 
+        // const idBooking = req.params.idBooking
+        let status = req.query.status;
+        if (!status) {
+            status = ['success', 'processing', 'cancel' , 'required'];
+        } else {
+            status = Array.isArray(status) ? status : [status];
         }
+        const bookings = await Booking.find({user : idUser , status: { $in: status }})
+
+        res.status(200).json({
+            status : 'success',
+            bookings
+        })
     }
+    catch(err){
+        res.status(400).json({
+            status: 'error',
+            message: err.message
+        })
+    }
+}
 
-    req = https.request(options, response => {
-        let data = '';
-
-        response.on('data', chunk => {
-            data += chunk;
-        });
-
-        response.on('end', () => {
-            const responseData = JSON.parse(data);
-
-            res.json({
-                success: true,
-                message: 'Payment created successfully.',
-                data: {
-                    paymentUrl: responseData.payUrl
-                }
-            });
-        });
-    });
-
-    req.on('error', error => {
-        console.error(error);
-        res.status(500).json({
-            success: false,
-            message: 'An error occurred while creating payment.'
-        });
-    });
-
-    req.write(requestBody);
-    req.end();
-};
 
 

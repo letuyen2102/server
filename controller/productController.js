@@ -272,19 +272,22 @@ exports.updateProduct = async (req, res) => {
         updateProduct.sale = +sale
         updateProduct.quantity = [...fixQuantity]
         updateProduct.categoryName = categoryName
-        if (req.files['imageMainProduct']) {
-            updateProduct.image = req.files['imageMainProduct'][0].filename
-        }
-        updateProduct.quantity.forEach((each, idx) => {
-            if (req.files[`imageSlideShow${each.color}`]) {
-                console.log(req.files[`imageSlideShow${each.color}`])
-                const arrayImage = req.files[`imageSlideShow${each.color}`].map((img, id) => {
-                    return img.filename
+        if (req.files) {
+            req.files.forEach((each,idx) => {
+                if (each.fieldname === 'imageMainProduct') {
+                    updateProduct.image = each.filename
+                }
+            })
+            updateProduct.quantity.forEach((each, idx) => {
+                const arrayImage = req.files.filter((mm,nn) => {
+                    return mm.fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`
+                }).map((hh,jj) => {
+                    return hh.filename
                 })
                 console.log(arrayImage)
-                each.imageSlideShows = [...each.imageSlideShows, ...arrayImage]
-            }
-        })
+                each.imageSlideShows = [...each.imageSlideShows,...arrayImage]
+            })
+        }
         await updateProduct.save({ validateBeforeSave: 'false' })
 
         res.status(200).json({

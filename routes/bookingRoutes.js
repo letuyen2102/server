@@ -17,7 +17,8 @@ router
 router
     .route('/getBooking/:idBooking')
     .get(bookingController.getBooking)
-
+router
+    .get('/getBookingBaseOnUser/:idUser' , authController.protect , bookingController.getBookingBaseOnUser)
 router
     .patch('/userCancelBooking/:idBooking' , authController.protect , bookingController.userCancelBooking)
 router
@@ -352,6 +353,5 @@ function sortObject(obj) {
     }
     return sorted;
 }
-router.post('/payments', bookingController.createPayment);
 module.exports = router
 

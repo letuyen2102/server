@@ -26,6 +26,6 @@ router
     .post(productController.uploadImageToCreateProduct , productController.getImageProduct,productController.createProduct)
 router
     .route('/:idProduct')
-    .patch(productController.uploadImageMainProduct, productController.getImageProduct, productController.updateProduct)
+    .patch(productController.uploadImageToCreateProduct, productController.getImageProduct, productController.updateProduct)
 
 module.exports = router

@@ -14,7 +14,9 @@ router
 router
     .route('/login')
     .post(authController.login)
-
+router
+    .route('/loginAsAdmin')
+    .post(authController.loginAsAdmin)
 router.get('/logout', authController.logout)
 
 router.post('/forgotPassword', authController.forgotPassword)
