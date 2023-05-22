@@ -1,31 +1,17 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ],
-    "env": {
-      "NODE_ENV": "development",
-      "PORT": "5000",
-      "DATABASE": "mongodb+srv://LeTuyen:<PASSWORD>@cluster0.dqmxc90.mongodb.net/MyApp?retryWrites=true&w=majority",
-      "DATABASE_LOCAL": "mongodb://localhost:27017/MyApp",
-      "DATABASE_PASSWORD": "67KVvqhKPlUwhPJp",
-      "JWT_SECRET_KEY": "hello-i-am-tuyen-and-i-20-y@ld2s",
-      "JWT_EXPIRES": "90d",
-      "COOKIE_EXPIRES": "30",
-      "EMAIL_FROM": "yassuolvt@gmail.com",
-      "API_KEY": "pk_test_51MPco5JCIJAAC9tsVCc0HIUqRj5dcPoyxBW9GNnNdAcAE8U4UwGaQqJBmyFieNv4aPP9yXsLEuAnUUucmMRMwfS600q8xeCn3x",
-      "API_SECRET_KEY": "sk_test_51MPco5JCIJAAC9tsOciELCDwMkuEDDEU7UpufjDss4Q1zueZTocrO58aadIuSB4LyF6r1epVUJ9ubfb4rpn5PHIn00KNYM2op0",
-      "API_MAILJET_KEY": "538902145fbf5ad4c6a0f9f2450eca8f",
-      "API_MAILJET_SECRET": "e09caec0cca42a1a613e4c29ceca0927"
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@now/node"
     }
-  }
-  
+  ],
+  "routes": [
+    {
+     
+      "src": "/(.*)",
+      
+      "dest": "app.js"
+    }
+  ]
+}
