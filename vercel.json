@@ -3,6 +3,11 @@
   "name": "music-album",
   "builds": [
      { "src": "server.js", "use": "@vercel/node" }
+     ,
+        {
+            "src": "public/image/**",
+            "use": "@vercel/static"
+        }
   ],
   "routes": [
      { "src": "/(.*)", "dest": "/server.js" }
