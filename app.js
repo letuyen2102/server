@@ -10,7 +10,8 @@ const bookingRouter = require('./routes/bookingRoutes')
 const app = express()
 
 app.use(cors())
-app.use(express.static('./public/image'));
+app.use(express.static('public/image'));
+
 
 app.use(cookieParser())
 app.use(bodyParser.json())
