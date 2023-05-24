@@ -67,7 +67,7 @@ exports.createProduct = async (req, res) => {
         const imageMainProduct = req.files.find(file => file.fieldname === 'imageMainProduct');
         if (imageMainProduct) {
           const uploadedImage = await cloudinary.uploader.upload(imageMainProduct.path);
-          createProd.image = uploadedImage.secure_url;
+          createProd.image = uploadedImage.url;
         }
   
         // Upload ảnh slide show lên cloudinary và lưu tên file vào trường imageSlideShows của mỗi size trong mảng quantity
@@ -77,7 +77,7 @@ exports.createProduct = async (req, res) => {
             if (arrayImage.length) {
                 const uploadResults = await Promise.all(arrayImage.map(async (img) => {
                 const uploadedImage = await cloudinary.uploader.upload(img);
-                return uploadedImage.secure_url;
+                return uploadedImage.url;
                 }));
                 each.imageSlideShows = uploadResults;
             }
