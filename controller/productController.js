@@ -5,7 +5,10 @@ const multer = require('multer');
 const path = require('path')
 const appRoot = require('app-root-path');
 const { default: slugify } = require('slugify');
-
+require('dotenv').config({
+    path : './../config.env'
+  })
+const cloudinary = require('cloudinary').v2;
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, appRoot + "/public/image/products");
@@ -25,48 +28,6 @@ const imageFilter = function (req, file, cb) {
 };
 const upload = multer({ storage: storage, fileFilter: imageFilter });
 
-const formatImageUpload = async () => {
-    const colors = await Product.aggregate([
-        {
-            $unwind: '$quantity'
-        },
-        {
-            $unwind: '$quantity.size'
-        },
-        {
-            $group: {
-                _id: '$quantity.color'
-            }
-        }
-    ]);
-
-    const colorList = colors.map(color => color._id);
-    // console.log(colorList)
-    const imageFormatUpload = colorList.map((each, idx) => {
-        return {
-            name: `imageSlideShow${each}`,
-            maxCount: 20
-        }
-    })
-    imageFormatUpload.push({ name: 'imageMainProduct', maxCount: 1 })
-    return imageFormatUpload
-}
-
-exports.uploadImageMainProduct = async (req, res, next) => {
-    const uploadFields = await formatImageUpload();
-    upload.fields(uploadFields)(req, res, err => {
-        if (err) {
-            res.status(400).json({
-                status: 'error',
-                message: err.message
-            })
-        } else {
-            next();
-        }
-    });
-}
-
-
 exports.getImageProduct = async (req, res, next) => {
     if (req.fileValidationError) {
         return res.send(req.fileValidationError);
@@ -75,54 +36,66 @@ exports.getImageProduct = async (req, res, next) => {
 };
 exports.uploadImageToCreateProduct = upload.any()
 exports.createProduct = async (req, res) => {
-    try {
-        const { 
-            name,
-            description,
-            oldPrice,
-            sale,
-            quantity,
-            categoryName
-        } = req.body
 
-        let fixQuantity = JSON.parse(quantity)
-        const createProd = new Product({
-            name ,
-            description ,
-            oldPrice ,
-            sale ,
-            quantity : fixQuantity ,
-            categoryName
-        })
-        if (req.files) {
-            req.files.forEach((each,idx) => {
-                if (each.fieldname === 'imageMainProduct') {
-                    createProd.image = each.filename
-                }
-            })
-            createProd.quantity.forEach((each, idx) => {
-                const arrayImage = req.files.filter((mm,nn) => {
-                    return mm.fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`
-                }).map((hh,jj) => {
-                    return hh.filename
-                })
-                console.log(arrayImage)
-                each.imageSlideShows = [...arrayImage]
-            })
+    try {
+        cloudinary.config({
+            cloud_name: process.env.CLOUD_NAME,
+            api_key: process.env.API_CLOUD_KEY,
+            api_secret: process.env.API_CLOUD_SECRET,
+        });
+      const { 
+        name,
+        description,
+        oldPrice,
+        sale,
+        quantity,
+        categoryName
+      } = req.body;
+  
+      let fixQuantity = JSON.parse(quantity);
+      const createProd = new Product({
+        name ,
+        description ,
+        oldPrice ,
+        sale ,
+        quantity : fixQuantity ,
+        categoryName
+      });
+  
+      // Upload ảnh chính lên cloudinary và lưu tên file vào trường image của sản phẩm
+      if (req.files) {
+        const imageMainProduct = req.files.find(file => file.fieldname === 'imageMainProduct');
+        if (imageMainProduct) {
+          const uploadedImage = await cloudinary.uploader.upload(imageMainProduct.path);
+          createProd.image = uploadedImage.secure_url;
         }
-        await createProd.save()
-        res.status(201).json({
-            status: 'success',
-            product : createProd
-        })
+  
+        // Upload ảnh slide show lên cloudinary và lưu tên file vào trường imageSlideShows của mỗi size trong mảng quantity
+        for (let i = 0; i < createProd.quantity.length; i++) {
+            const each = createProd.quantity[i];
+            const arrayImage = req.files.filter((mm, nn) => mm.fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`).map((hh) => hh.path);
+            if (arrayImage.length) {
+                const uploadResults = await Promise.all(arrayImage.map(async (img) => {
+                const uploadedImage = await cloudinary.uploader.upload(img);
+                return uploadedImage.secure_url;
+                }));
+                each.imageSlideShows = uploadResults;
+            }
+            }
+      }
+  
+      await createProd.save();
+      res.status(201).json({
+        status: 'success',
+        product : createProd
+      });
+    } catch (err) {
+      res.status(400).json({
+        status: 'error',
+        message: err.message
+      });
     }
-    catch (err) {
-        res.status(400).json({
-            status: 'error',
-            message: err.message
-        })
-    }
-}
+  };
 exports.getAllProducts = async (req, res, next) => {
     try {
         const feature = new APIFeatures(Product.find(), req.query)
@@ -273,6 +246,7 @@ exports.updateProduct = async (req, res) => {
         updateProduct.quantity = [...fixQuantity]
         updateProduct.categoryName = categoryName
         if (req.files) {
+            
             req.files.forEach((each,idx) => {
                 if (each.fieldname === 'imageMainProduct') {
                     updateProduct.image = each.filename

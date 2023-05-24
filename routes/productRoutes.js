@@ -1,7 +1,12 @@
 const express = require('express')
-const productController = require('./../controller/productController')
-const router = express.Router()
+const productController = require('./../controller/productController');
+const { uploadImage } = require('../controller/test');
+const multer = require('multer');
+const storage = multer.diskStorage({});
 
+const upload = multer({ storage }).any();
+const router = express.Router()
+router.post('/upload',  uploadImage);
 router
     .route('/filterProducts')
     .get(productController.filterProducts)

@@ -46,15 +46,15 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-1-main-1.webp",
-                    "clothes-1-main-2.webp",
-                    "clothes-1-main-3.webp",
-                    "clothes-1-main-4.webp",
-                    "clothes-1-main-5.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906284/my_image_product/clothes-1-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906287/my_image_product/clothes-1-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906290/my_image_product/clothes-1-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906294/my_image_product/clothes-1-main-4.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906299/my_image_product/clothes-1-main-5.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-1-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906302/my_image_product/clothes-1-main.webp.webp",
         "categoryName": "Đầm"
     },
     {
@@ -104,14 +104,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-2-main-1.webp",
-                    "clothes-2-main-2.webp",
-                    "clothes-2-main-3.webp",
-                    "clothes-2-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906464/my_image_product/clothes-2-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906466/my_image_product/clothes-2-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906468/my_image_product/clothes-2-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906471/my_image_product/clothes-2-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-2-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906474/my_image_product/clothes-2-main.webp.webp",
         "categoryName": "Đầm"
     },
     {
@@ -161,14 +161,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-3-main-1.webp",
-                    "clothes-3-main-2.webp",
-                    "clothes-3-main-3.webp",
-                    "clothes-3-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906576/my_image_product/clothes-3-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906580/my_image_product/clothes-3-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906583/my_image_product/clothes-3-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906586/my_image_product/clothes-3-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-3-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906590/my_image_product/clothes-3-main.webp.webp",
         "categoryName": "Đầm"
     },
     {
@@ -218,15 +218,15 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-4-main-1.webp",
-                    "clothes-4-main-2.webp",
-                    "clothes-4-main-3.webp",
-                    "clothes-4-main-4.webp",
-                    "clothes-4-main-5.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906593/my_image_product/clothes-4-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906596/my_image_product/clothes-4-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906599/my_image_product/clothes-4-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906603/my_image_product/clothes-4-main-4.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906606/my_image_product/clothes-4-main-5.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-4-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906609/my_image_product/clothes-4-main.webp.webp",
         "categoryName": "Đầm"
     },
     {
@@ -268,10 +268,10 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-5-main-1.webp",
-                    "clothes-5-main-2.webp",
-                    "clothes-5-main-3.webp",
-                    "clothes-5-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906613/my_image_product/clothes-5-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906616/my_image_product/clothes-5-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906619/my_image_product/clothes-5-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906623/my_image_product/clothes-5-main-4.webp.webp"
                 ]
             },
             {
@@ -307,13 +307,13 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-5-main-5.webp",
-                    "clothes-5-main-6.webp",
-                    "clothes-5-main-7.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906626/my_image_product/clothes-5-main-5.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906630/my_image_product/clothes-5-main-6.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906633/my_image_product/clothes-5-main-7.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-5-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906636/my_image_product/clothes-5-main.webp.webp",
         "categoryName": "Đầm"
     },
     {
@@ -363,10 +363,10 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-6-main-1.webp",
-                    "clothes-6-main-2.webp",
-                    "clothes-6-main-3.webp",
-                    "clothes-6-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906639/my_image_product/clothes-6-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906642/my_image_product/clothes-6-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906645/my_image_product/clothes-6-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906648/my_image_product/clothes-6-main-4.webp.webp"
                 ]
             },
             {
@@ -410,14 +410,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-6-main-5.webp",
-                    "clothes-6-main-6.webp",
-                    "clothes-6-main-7.webp",
-                    "clothes-6-main-8.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906652/my_image_product/clothes-6-main-5.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906655/my_image_product/clothes-6-main-6.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906659/my_image_product/clothes-6-main-7.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906662/my_image_product/clothes-6-main-8.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-6-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906665/my_image_product/clothes-6-main.webp.webp",
         "categoryName": "Đầm"
     },
     {
@@ -463,15 +463,15 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-7-main-1.webp",
-                    "clothes-7-main-2.webp",
-                    "clothes-7-main-3.webp",
-                    "clothes-7-main-4.webp",
-                    "clothes-7-main-5.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906668/my_image_product/clothes-7-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906672/my_image_product/clothes-7-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906675/my_image_product/clothes-7-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906678/my_image_product/clothes-7-main-4.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906681/my_image_product/clothes-7-main-5.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-7-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906684/my_image_product/clothes-7-main.webp.webp",
         "categoryName": "Đầm"
     },
     {
@@ -521,15 +521,15 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-8-main-1.webp",
-                    "clothes-8-main-2.webp",
-                    "clothes-8-main-3.webp",
-                    "clothes-8-main-4.webp",
-                    "clothes-8-main-5.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906688/my_image_product/clothes-8-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906691/my_image_product/clothes-8-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906694/my_image_product/clothes-8-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906697/my_image_product/clothes-8-main-4.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906699/my_image_product/clothes-8-main-5.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-8-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906699/my_image_product/clothes-8-main-5.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -579,14 +579,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-9-main-1.webp",
-                    "clothes-9-main-2.webp",
-                    "clothes-9-main-3.webp",
-                    "clothes-9-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906705/my_image_product/clothes-9-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906708/my_image_product/clothes-9-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906712/my_image_product/clothes-9-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906715/my_image_product/clothes-9-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-9-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906718/my_image_product/clothes-9-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -636,13 +636,13 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-10-main-1.webp",
-                    "clothes-10-main-2.webp",
-                    "clothes-10-main-3.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906305/my_image_product/clothes-10-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906308/my_image_product/clothes-10-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906311/my_image_product/clothes-10-main-3.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-10-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906315/my_image_product/clothes-10-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -692,9 +692,9 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-11-main-4.webp",
-                    "clothes-11-main-5.webp",
-                    "clothes-11-main-6.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906326/my_image_product/clothes-11-main-4.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906329/my_image_product/clothes-11-main-5.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906332/my_image_product/clothes-11-main-6.webp.webp"
                 ]
             },
             {
@@ -738,13 +738,13 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-11-main-1.webp",
-                    "clothes-11-main-2.webp",
-                    "clothes-11-main-3.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906318/my_image_product/clothes-11-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906321/my_image_product/clothes-11-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906324/my_image_product/clothes-11-main-3.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-11-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906335/my_image_product/clothes-11-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -794,15 +794,15 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-12-main-1.webp",
-                    "clothes-12-main-2.webp",
-                    "clothes-12-main-3.webp",
-                    "clothes-12-main-4.webp",
-                    "clothes-12-main-5.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906339/my_image_product/clothes-12-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906342/my_image_product/clothes-12-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906345/my_image_product/clothes-12-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906349/my_image_product/clothes-12-main-4.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906352/my_image_product/clothes-12-main-5.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-12-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906355/my_image_product/clothes-12-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -852,14 +852,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-13-main-1.webp",
-                    "clothes-13-main-2.webp",
-                    "clothes-13-main-3.webp",
-                    "clothes-13-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906358/my_image_product/clothes-13-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906361/my_image_product/clothes-13-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906363/my_image_product/clothes-13-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906367/my_image_product/clothes-13-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-13-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906370/my_image_product/clothes-13-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -909,14 +909,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-14-main-1.webp",
-                    "clothes-14-main-2.webp",
-                    "clothes-14-main-3.webp",
-                    "clothes-14-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906373/my_image_product/clothes-14-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906375/my_image_product/clothes-14-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906379/my_image_product/clothes-14-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906382/my_image_product/clothes-14-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-14-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906385/my_image_product/clothes-14-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -966,8 +966,8 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-15-main-3.webp",
-                    "clothes-15-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906389/my_image_product/clothes-15-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906392/my_image_product/clothes-15-main-2.webp.webp"
                 ]
             },
             {
@@ -1011,12 +1011,12 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-15-main-3.webp",
-                    "clothes-15-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906394/my_image_product/clothes-15-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906397/my_image_product/clothes-15-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-15-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906402/my_image_product/clothes-15-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -1066,14 +1066,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-16-main-1.webp",
-                    "clothes-16-main-2.webp",
-                    "clothes-16-main-3.webp",
-                    "clothes-16-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906406/my_image_product/clothes-16-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906409/my_image_product/clothes-16-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906412/my_image_product/clothes-16-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906415/my_image_product/clothes-16-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-16-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906418/my_image_product/clothes-16-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -1115,14 +1115,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-17-main-1.webp",
-                    "clothes-17-main-2.webp",
-                    "clothes-17-main-3.webp",
-                    "clothes-17-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906421/my_image_product/clothes-17-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906424/my_image_product/clothes-17-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906427/my_image_product/clothes-17-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906432/my_image_product/clothes-17-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-17-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906435/my_image_product/clothes-17-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -1164,14 +1164,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-18-main-1.webp",
-                    "clothes-18-main-2.webp",
-                    "clothes-18-main-3.webp",
-                    "clothes-18-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906439/my_image_product/clothes-18-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906441/my_image_product/clothes-18-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906443/my_image_product/clothes-18-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906445/my_image_product/clothes-18-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-18-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906448/my_image_product/clothes-18-main.webp.webp",
         "categoryName": "Áo"
     },
     {
@@ -1221,14 +1221,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-19-main-1.webp",
-                    "clothes-19-main-2.webp",
-                    "clothes-19-main-3.webp",
-                    "clothes-19-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906451/my_image_product/clothes-19-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906454/my_image_product/clothes-19-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906457/my_image_product/clothes-19-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906459/my_image_product/clothes-19-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-19-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906462/my_image_product/clothes-19-main.webp.webp",
         "categoryName": "Quần"
     },
     {
@@ -1278,12 +1278,12 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-20-main-1.webp",
-                    "clothes-20-main-2.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906478/my_image_product/clothes-20-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906481/my_image_product/clothes-20-main-2.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-20-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906484/my_image_product/clothes-20-main.webp.webp",
         "categoryName": "Quần"
     },
     {
@@ -1333,14 +1333,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-21-main-1.webp",
-                    "clothes-21-main-2.webp",
-                    "clothes-21-main-3.webp",
-                    "clothes-21-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906487/my_image_product/clothes-21-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906490/my_image_product/clothes-21-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906493/my_image_product/clothes-21-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906495/my_image_product/clothes-21-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-21-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906498/my_image_product/clothes-21-main.webp.webp",
         "categoryName": "Chân váy"
     },
     {
@@ -1390,13 +1390,13 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-22-main-1.webp",
-                    "clothes-22-main-2.webp",
-                    "clothes-22-main-3.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906501/my_image_product/clothes-22-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906503/my_image_product/clothes-22-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906507/my_image_product/clothes-22-main-3.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-22-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906510/my_image_product/clothes-22-main.webp.webp",
         "categoryName": "Chân váy"
     },
     {
@@ -1446,14 +1446,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-23-main-1.webp",
-                    "clothes-23-main-2.webp",
-                    "clothes-23-main-3.webp",
-                    "clothes-23-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906513/my_image_product/clothes-23-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906516/my_image_product/clothes-23-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906518/my_image_product/clothes-23-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906521/my_image_product/clothes-23-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-23-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906524/my_image_product/clothes-23-main.webp.webp",
         "categoryName": "Chân váy"
     },
     {
@@ -1503,14 +1503,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-24-main-1.webp",
-                    "clothes-24-main-2.webp",
-                    "clothes-24-main-3.webp",
-                    "clothes-24-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906528/my_image_product/clothes-24-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906534/my_image_product/clothes-24-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906538/my_image_product/clothes-24-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906541/my_image_product/clothes-24-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-24-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906544/my_image_product/clothes-24-main.webp.webp",
         "categoryName": "Chân váy"
     },
     {
@@ -1556,14 +1556,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-25-main-1.webp",
-                    "clothes-25-main-2.webp",
-                    "clothes-25-main-3.webp",
-                    "clothes-25-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906547/my_image_product/clothes-25-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906550/my_image_product/clothes-25-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906553/my_image_product/clothes-25-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906556/my_image_product/clothes-25-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-25-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906559/my_image_product/clothes-25-main.webp.webp",
         "categoryName": "Jumpsuit"
     },
     {
@@ -1609,14 +1609,14 @@
                     }
                 ],
                 "imageSlideShows": [
-                    "clothes-26-main-1.webp",
-                    "clothes-26-main-2.webp",
-                    "clothes-26-main-3.webp",
-                    "clothes-26-main-4.webp"
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906562/my_image_product/clothes-26-main-1.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906565/my_image_product/clothes-26-main-2.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906568/my_image_product/clothes-26-main-3.webp.webp",
+                    "https://res.cloudinary.com/dalz888e7/image/upload/v1684906571/my_image_product/clothes-26-main-4.webp.webp"
                 ]
             }
         ],
-        "image": "clothes-26-main.webp",
+        "image": "https://res.cloudinary.com/dalz888e7/image/upload/v1684906573/my_image_product/clothes-26-main.webp.webp",
         "categoryName": "Jumpsuit"
     }
 ]
