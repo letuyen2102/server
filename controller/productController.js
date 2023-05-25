@@ -3,22 +3,19 @@ const APIFeatures = require('./query')
 // const upload = require('../middleware/uploadImage')
 const multer = require('multer');
 const path = require('path')
+const {CloudinaryStorage} = require('multer-storage-cloudinary')
 const appRoot = require('app-root-path');
 const { default: slugify } = require('slugify');
+const cloudinary = require('cloudinary').v2;
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_CLOUD_KEY,
+    api_secret: process.env.API_CLOUD_SECRET,
+});
 require('dotenv').config({
     path : './../config.env'
   })
-const cloudinary = require('cloudinary').v2;
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, appRoot + "/public/image/products");
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix)
-    }
-});
-
+const storage = multer.memoryStorage()
 const imageFilter = function (req, file, cb) {
     if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|avif|AVIF|webp|WEBP)$/)) {
         req.fileValidationError = 'Only image files are allowed!';
@@ -26,7 +23,7 @@ const imageFilter = function (req, file, cb) {
     }
     cb(null, true);
 };
-const upload = multer({ storage: storage, fileFilter: imageFilter });
+const upload = multer({ storage: storage});
 
 exports.getImageProduct = async (req, res, next) => {
     if (req.fileValidationError) {
@@ -61,27 +58,53 @@ exports.createProduct = async (req, res) => {
         quantity : fixQuantity ,
         categoryName
       });
-  
-      // Upload ảnh chính lên cloudinary và lưu tên file vào trường image của sản phẩm
       if (req.files) {
-        const imageMainProduct = req.files.find(file => file.fieldname === 'imageMainProduct');
-        if (imageMainProduct) {
-          const uploadedImage = await cloudinary.uploader.upload(imageMainProduct.path);
-          createProd.image = uploadedImage.url;
-        }
-  
-        // Upload ảnh slide show lên cloudinary và lưu tên file vào trường imageSlideShows của mỗi size trong mảng quantity
-        for (let i = 0; i < createProd.quantity.length; i++) {
-            const each = createProd.quantity[i];
-            const arrayImage = req.files.filter((mm, nn) => mm.fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`).map((hh) => hh.path);
-            if (arrayImage.length) {
-                const uploadResults = await Promise.all(arrayImage.map(async (img) => {
-                const uploadedImage = await cloudinary.uploader.upload(img);
-                return uploadedImage.url;
-                }));
-                each.imageSlideShows = uploadResults;
-            }
-            }
+        const uploadPromises = req.files.map((file) => {
+            return new Promise((resolve, reject) => {
+              const { originalname, buffer , fieldname} = file;
+                if (fieldname === 'imageMainProduct') {
+                    cloudinary.uploader.upload_stream(
+                        {
+                          folder: 'my_image_product',
+                          public_id: originalname.split('.')[0],
+                          resource_type: 'image',
+                        },
+                        (error, result) => {
+                          if (error) {
+                            console.error(error);
+                            reject(error);
+                          } else {
+                            createProd.image = result.url
+                            resolve(result);
+                          }
+                        }
+                      ).end(buffer);
+                }
+                for (let i = 0; i < createProd.quantity.length; i++) {
+                    const each = createProd.quantity[i];
+                    if (fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`) {
+                        cloudinary.uploader.upload_stream(
+                            {
+                              folder: 'my_image_product',
+                              public_id: originalname.split('.')[0],
+                              resource_type: 'image',
+                            },
+                            (error, result) => {
+                              if (error) {
+                                console.error(error);
+                                reject(error);
+                              } else {
+                                each.imageSlideShows = [...each.imageSlideShows ,result.url ] 
+                                resolve(result);
+                              }
+                            }
+                          ).end(buffer);
+                    }
+                }
+            });
+          });
+
+          const cloudinaryResults = await Promise.all(uploadPromises);
       }
   
       await createProd.save();
@@ -228,6 +251,11 @@ exports.filterProducts = async (req, res, next) => {
 
 exports.updateProduct = async (req, res) => {
     try {
+        cloudinary.config({
+            cloud_name: process.env.CLOUD_NAME,
+            api_key: process.env.API_CLOUD_KEY,
+            api_secret: process.env.API_CLOUD_SECRET,
+        });
         let {
             name,
             description,
@@ -246,21 +274,53 @@ exports.updateProduct = async (req, res) => {
         updateProduct.quantity = [...fixQuantity]
         updateProduct.categoryName = categoryName
         if (req.files) {
-            
-            req.files.forEach((each,idx) => {
-                if (each.fieldname === 'imageMainProduct') {
-                    updateProduct.image = each.filename
-                }
-            })
-            updateProduct.quantity.forEach((each, idx) => {
-                const arrayImage = req.files.filter((mm,nn) => {
-                    return mm.fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`
-                }).map((hh,jj) => {
-                    return hh.filename
-                })
-                console.log(arrayImage)
-                each.imageSlideShows = [...each.imageSlideShows,...arrayImage]
-            })
+            const uploadPromises = req.files.map((file) => {
+                return new Promise((resolve, reject) => {
+                  const { originalname, buffer , fieldname} = file;
+                    if (fieldname === 'imageMainProduct') {
+                        cloudinary.uploader.upload_stream(
+                            {
+                              folder: 'my_image_product',
+                              public_id: originalname.split('.')[0],
+                              resource_type: 'image',
+                            },
+                            (error, result) => {
+                              if (error) {
+                                console.error(error);
+                                reject(error);
+                              } else {
+                                updateProduct.image = result.url
+                                resolve(result);
+                              }
+                            }
+                          ).end(buffer);
+                    }
+                    for (let i = 0; i < updateProduct.quantity.length; i++) {
+                        const each = updateProduct.quantity[i];
+                        if (fieldname === `imageSlideShow${slugify(each.colorName, { locale: 'vi', lower: true })}`) {
+                            cloudinary.uploader.upload_stream(
+                                {
+                                  folder: 'my_image_product',
+                                  public_id: originalname.split('.')[0],
+                                  resource_type: 'image',
+                                },
+                                (error, result) => {
+                                  if (error) {
+                                    console.error(error);
+                                    reject(error);
+                                  } else {
+                                    each.imageSlideShows = [...each.imageSlideShows ,result.url ] 
+                                    resolve(result);
+                                  }
+                                }
+                              ).end(buffer);
+                        }
+                    }
+                });
+              });
+    
+              const cloudinaryResults = await Promise.all(uploadPromises);
+              console.log(cloudinaryResults)
         }
         await updateProduct.save({ validateBeforeSave: 'false' })
 
@@ -272,7 +332,7 @@ exports.updateProduct = async (req, res) => {
     catch (err) {
         res.status(400).json({
             status: 'error',
-            message: err.message
+            message: err
         })
     }
 }

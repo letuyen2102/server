@@ -1,12 +1,8 @@
 const express = require('express')
 const productController = require('./../controller/productController');
-const { uploadImage } = require('../controller/test');
-const multer = require('multer');
-const storage = multer.diskStorage({});
-
-const upload = multer({ storage }).any();
+const { uploadTest ,uploadImagesToCloudinary } = require('../controller/test');
 const router = express.Router()
-router.post('/upload',  uploadImage);
+router.post('/upload', uploadTest ,  uploadImagesToCloudinary);
 router
     .route('/filterProducts')
     .get(productController.filterProducts)
