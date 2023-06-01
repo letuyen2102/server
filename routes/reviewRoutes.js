@@ -10,7 +10,10 @@ router
 router
     .get('/' , reviewController.getAllReviews)
     .post('/' , authController.protect , reviewController.createReview)
-
+router
+    .delete('/:idComment/:idResponse' , authController.protect , reviewController.deleteResponse)
+router
+    .delete('/:idComment' , authController.protect , reviewController.deleteComment)
 
 
 module.exports = router

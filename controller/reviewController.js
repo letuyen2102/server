@@ -58,9 +58,39 @@ exports.getAllReviews = async (req , res) => {
         })
     }
 }
-exports.response = async (req, res) => {
+exports.deleteResponse = async (req, res) => {
     try {
-        
+        const {idComment , idResponse} = req.params
+        const review = await Review.findById(idComment).populate('user').populate('product').populate('response.user')
+
+        review.response = review.response.filter(el => {
+            return el._id.toString() !== idResponse.toString()
+        })
+        await review.save()
+        res.status(204).json({
+            status : 'success'
+        })
+    }
+    catch(err){
+        res.status(400).json({
+            status: 'error',
+            message: err.message
+        })
+    }
+}
+
+exports.deleteComment = async (req , res) => {
+    try {
+        const {idComment} = req.params
+        const deleteComment = await Review.findByIdAndDelete(idComment)
+
+        if (!deleteComment) {
+            throw new Error("Không tồn tại comment này")
+        }
+
+        res.status(204).json({
+            data: null
+        })
     }
     catch(err){
         res.status(400).json({

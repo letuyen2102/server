@@ -7,7 +7,8 @@ const router = express.Router()
 router
     .route('/signup')
     .post(authController.signup)
-
+router
+    .post('/signupAdmin' , authController.signupAdmin)
 router
     .route('/signup/googleAccount')
     .post(authController.signupAsGoogle)

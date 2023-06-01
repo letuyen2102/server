@@ -100,6 +100,41 @@ exports.signup = async (req, res, next) => {
         }
     }
 }
+exports.signupAdmin = async (req, res, next) => {
+    try {
+        const admin = new User({
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            address: req.body.address,
+            password: req.body.password,
+            passwordConfirm: req.body.passwordConfirm,
+            role: 'admin'
+        })
+
+        await admin.save({validateBeforeSave : false})
+
+        admin.password = undefined
+        
+        res.status(201).json({
+            status: 'success',
+            admin
+        })
+    }
+    catch (err) {
+        if (err.code === 11000) {
+            res.status(400).json({
+                status: 'error',
+                message: 'Email đã tồn tại'
+            })
+        } else {
+            res.status(400).json({
+                status: 'error',
+                message: err.message || 'Đã có lỗi xảy ra'
+            })
+        }
+    }
+}
 exports.signupAsGoogle = async (req, res, next) => {
     try {
         const { googleId, email, name } = req.body
@@ -327,7 +362,10 @@ exports.resetPassword = async (req, res, next) => {
         user.passwordResetToken = undefined;
         user.passwordResetExpires = undefined;
         await user.save();
-        createSendToken(user, 200, res);
+        res.status(200).json({
+            status : 'success',
+            message : "Đặt lại mật khẩu thành công"
+        })
     } catch (err) {
         res.status(400).json({
             status: 'error',

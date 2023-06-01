@@ -336,7 +336,28 @@ exports.updateProduct = async (req, res) => {
         })
     }
 }
+exports.deleteProduct = async (req , res) => {
+    try {
+        const { idProduct } = req.params
 
+        const filterProd = await Product.findByIdAndDelete(idProduct)
+
+        if (!filterProd) {
+            throw new Error('Không có sản phẩm này trong kho')
+        }
+
+        res.status(200).json({
+            status : 'success',
+            message : 'Xóa sản phẩm thành công'
+        })
+    }
+    catch(err){
+        res.status(400).json({
+            status : 'error',
+            message : err.message
+        })
+    }
+}
 exports.getCategories = async (req, res) => {
     try {
         const categories = await Product.distinct('categoryName');
@@ -352,29 +373,6 @@ exports.getCategories = async (req, res) => {
         });
     }
 };
-// exports.getCategories = async (req, res, next) => {
-//     try {
-//         const categories = await await Product.aggregate([
-//             { $group: {
-//               _id: { category: "$category", categoryName: "$categoryName" }
-//             }},
-//             { $project: {
-//               category: "$_id.category",
-//               categoryName: "$_id.categoryName",
-//               _id: 0
-//             }}
-//           ]);
-//         res.status(200).json({
-//             status: 'success',
-//             categories
-//         });
-//     } catch (err) {
-//         res.status(500).json({
-//             status: 'error',
-//             message: err.message
-//         });
-//     }
-// };
 exports.getColors = async (req, res) => {
     try {
         const colors = await Product.aggregate([
