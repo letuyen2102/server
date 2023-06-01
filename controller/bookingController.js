@@ -134,10 +134,16 @@ exports.acceptOrder = async (req, res) => {
         await Promise.all(searchBooking.products.map(async (each, idx) => {
             const result = await Product.findById(each.product._id)
             await Promise.all(result.quantity.map(async (mm, nn) => {
-                if (mm.color === each.color && mm.colorName === each.colorName) {
+                if (mm.color === each.color) {
                     mm.size.forEach((hh, kk) => {
-                        if (hh.size === each.size && (hh.quantity - each.quantity) >= 0) {
-                            hh.quantity = hh.quantity - each.quantity
+                        if (hh.size === each.size) {
+                            if (each.quantity > hh.quantity){
+                                throw new Error(`Sản phẩm ${each.product._id} chỉ còn ${hh.quantity} loại màu ${mm.color} size ${hh.size}`)
+
+                            }
+                            else {
+                                hh.quantity = hh.quantity - each.quantity
+                            }
                         }
                     })
                 }

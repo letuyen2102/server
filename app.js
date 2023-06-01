@@ -6,7 +6,8 @@ const productRouter = require('./routes/productRoutes')
 const userRouter = require('./routes/userRoutes')
 const cartRouter = require('./routes/cartRoutes')
 const bookingRouter = require('./routes/bookingRoutes')
-
+const reviewRouter = require('./routes/reviewRoutes')
+const chatRouter = require('./routes/chatRoutes')
 const app = express()
 
 app.use(cors())
@@ -27,4 +28,6 @@ app.use('/myway/api/users' , userRouter)
 
 app.use('/myway/api/carts' , cartRouter)
 app.use('/myway/api/bookings' , bookingRouter)
+app.use('/myway/api/reviews' , reviewRouter)
+app.use('/myway/api/chats' , chatRouter)
 module.exports = app

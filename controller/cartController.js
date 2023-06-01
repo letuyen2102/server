@@ -214,8 +214,32 @@ exports.createManyCart = async (req, res) => {
             let item = cart.items.find(item => item.product.equals(product._id) && item.color === color && item.size === size  && item.colorName === colorName);
             if (item) {
                 item.quantity += parseInt(quantity);
+                item.product.quantity.forEach(el => {
+                    if (el.color === item.color) {
+                        el.size.forEach(el2 => {
+                            if (el2.size === item.size) {
+                                if (item.quantity >= el2.quantity) {
+                                    item.quantity = el2.quantity
+                                }
+                            }
+                        })
+                    }
+                })
             } else {
-                cart.items.push({ product: product._id, quantity: parseInt(quantity), color, size, image , colorName});
+                product.quantity.forEach(el => {
+                    if (el.color === color) {
+                        el.size.forEach(el2 => {
+                            if (el2.size === size) {
+                                if (quantity >= el2.quantity) {
+                                    cart.items.push({ product: product._id, quantity: el2.quantity, color, size, image , colorName});
+                                }
+                                else {
+                                    cart.items.push({ product: product._id, quantity: quantity, color, size, image , colorName});
+                                }
+                            }
+                        })
+                    }
+                })
             }
             console.log(`step ${i}`)
         }

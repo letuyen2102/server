@@ -17,7 +17,8 @@ router
     .get('/getProductsByCategory', productController.getProductsByCategory)
 router
     .get('/getProductById/:ID', productController.getProductById)
-
+router
+    .post('/search', productController.searchProducts);
 router
     .route('/:slug')
     .get(productController.getProduct)

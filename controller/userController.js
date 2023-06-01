@@ -5,15 +5,11 @@ const appRoot = require('app-root-path')
 const APIFeatures = require('./query');
 const User = require('../models/User');
 const Booking = require('../models/Booking');
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, appRoot + "/public/image/users");
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
+const cloudinary = require('cloudinary').v2;
+require('dotenv').config({
+    path : './../config.env'
+  })
+const storage = multer.memoryStorage()
 
 const imageFilter = function (req, file, cb) {
     if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|avif|AVIF|webp|WEBP)$/)) {
@@ -25,7 +21,7 @@ const imageFilter = function (req, file, cb) {
 const upload = multer({ storage: storage, fileFilter: imageFilter });
 
 
-exports.uploadUserPhoto = upload.single('users')
+exports.uploadUserPhoto = upload.any()
 
 
 exports.getImageUser = async (req, res, next) => {
@@ -111,13 +107,45 @@ exports.getUser = async (req, res, next) => {
 exports.updateMe = async (req, res, next) => {
 
     try {
+        cloudinary.config({
+            cloud_name: process.env.CLOUD_NAME,
+            api_key: process.env.API_CLOUD_KEY,
+            api_secret: process.env.API_CLOUD_SECRET,
+        });
         if (req.body.password || req.body.passwordConfirm) {
             throw new Error('Đây không phải đường dẫn thay đổi mật khẩu')
         }
         const filteredBody = filterObj(req.body, 'name', 'email', 'phone', 'birthday', 'gender', 'address');
 
-        if (req.file) {
-            filteredBody.photo = req.file.filename
+        if (req.files) {
+            
+            const uploadPromises = req.files.map((file) => {
+                return new Promise((resolve, reject) => {
+                  const { originalname, buffer , fieldname} = file;
+                    if (fieldname === 'users') {
+                        cloudinary.uploader.upload_stream(
+                            {
+                              folder: 'my_image_user',
+                              public_id: originalname.split('.')[0],
+                              resource_type: 'image',
+                            },
+                            (error, result) => {
+                              if (error) {
+                                console.error(error);
+                                reject(error);
+                              } else {
+                                filteredBody.photo = result.url
+                                resolve(result);
+                              }
+                            }
+                          ).end(buffer);
+                    }
+                });
+              });
+    
+              const cloudinaryResults = await Promise.all(uploadPromises);
+
+
         }
         const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
             new: true,

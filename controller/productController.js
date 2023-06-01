@@ -455,3 +455,32 @@ exports.getProductsByCategory = async (req, res, next) => {
         res.status(500).json({ error: 'Đã có lỗi xảy ra' });
     }
 }
+exports.searchProducts = async (req, res) => {
+    try {
+      const { query } = req.body;
+        console.log(query)
+
+        if (query.trim().length === 0 || !query) {
+            res.status(200).json({
+                status : 'success',
+                products : []
+              })
+        }
+      // Tìm kiếm sản phẩm dựa trên tên hoặc mô tả
+      else {
+        const products = await Product.find({
+            $or: [
+              { name: { $regex: query, $options: 'i' } }, // Tìm kiếm theo tên (không phân biệt chữ hoa/chữ thường)
+              { description: { $regex: query, $options: 'i' } }, // Tìm kiếm theo mô tả (không phân biệt chữ hoa/chữ thường)
+            ],
+          });
+      
+          res.status(200).json({
+            status : 'success',
+            products
+          })
+      }
+    } catch (error) {
+      res.status(500).json({ error: 'Đã xảy ra lỗi khi tìm kiếm sản phẩm' });
+    }
+  };
