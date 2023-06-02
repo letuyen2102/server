@@ -416,7 +416,7 @@ exports.sendOtp = async (req, res, next) => {
         user.otpExpires = otpExpires
         await user.save({ validateBeforeSave: false });
         const accountSid = 'AC0c8e9ccb0de3f134033fd46c862a91a1';
-        const authToken = '4d9869e943d2b346c5c96bde537d6df7';
+        const authToken = 'e06178139543b8b4b0904adbcb1386af';
         const client = twilio(accountSid, authToken);
         await client.messages.create({
             to: `+84${parseInt(phone)}`,
@@ -434,7 +434,7 @@ exports.sendOtp = async (req, res, next) => {
         await user.save({ validateBeforeSave: false });
         res.status(400).json({
             status: 'error',
-            message: err
+            message: err.message
         })
     }
 };
@@ -470,4 +470,38 @@ exports.resetPhone = async (req, res, next) => {
         })
     }
 
+}
+
+exports.resetPasswordPhone = async (req , res) => {
+    try {
+        const phone = req.body.phone;
+        const account = await User.findOne({phone: phone})
+        if (!phone) {
+            throw new Error("Không tìm thấy người dùng này")
+        }
+        const randomString = Math.random().toString(36).substring(2, 10);
+
+        account.password = randomString
+
+        await account.save({ validateBeforeSave: false });
+
+        const accountSid = 'AC0c8e9ccb0de3f134033fd46c862a91a1';
+        const authToken = 'e06178139543b8b4b0904adbcb1386af';
+        const client = twilio(accountSid, authToken);
+        await client.messages.create({
+            to: `+84${parseInt(phone)}`,
+            from: '+14344426635',
+            body: `Mật khẩu mới của bạn là: ${randomString}`
+        })
+        res.status(200).json({
+            status: 'success',
+            message: 'Đã gửi mật khẩu mới'
+        })
+    }
+    catch(err){
+        res.status(400).json({
+            status: 'error',
+            message: err.message
+        })
+    }
 }

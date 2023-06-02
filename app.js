@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const mongoSanitize = require('express-mongo-sanitize');
 const productRouter = require('./routes/productRoutes')
 const userRouter = require('./routes/userRoutes')
 const cartRouter = require('./routes/cartRoutes')
@@ -13,10 +14,10 @@ const app = express()
 app.use(cors())
 app.use(express.static('public/image'));
 
-
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(mongoSanitize());
 app.get('/' , (req,res) => {
     res.status(200).json({
         status : 'success',
