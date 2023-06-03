@@ -15,12 +15,11 @@ mongoose.connect(DB , {
     console.log('Connect DB successfull')
 })
 
-const io = new Server(server, {
+const io = new Server(server , {
     cors: {
-      origin: '*'
+        origin : '*'
     }
-  });
-  
+})
 
 io.on("connection" , (socket) => {
     console.log(`user connected ${socket.id}`)
