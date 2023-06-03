@@ -15,8 +15,16 @@ mongoose.connect(DB , {
     console.log('Connect DB successfull')
 })
 
-const io = new Server(server)
-
+const io = new Server(server , {
+    cors : {
+        origin : [
+            "https://myway-shop-app-ov4n.onrender.com",
+            "http://localhost:3000",
+            "http://localhost:5000",
+            "https://myway-shop-app-api-dr39.onrender.com"
+        ]
+    }
+})
 io.on("connection" , (socket) => {
     console.log(`user connected ${socket.id}`)
     socket.on("join_room" , (data) => {
