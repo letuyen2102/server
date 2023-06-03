@@ -17,7 +17,7 @@ mongoose.connect(DB , {
 
 const io = new Server(server , {
     cors: {
-        origin : '*'
+        origin : 'https://myway-shop-app-ov4n.onrender.com/'
     }
 })
 
