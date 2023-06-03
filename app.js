@@ -12,7 +12,7 @@ const chatRouter = require('./routes/chatRoutes')
 const app = express()
 
 app.use(cors({
-    origin : 'https://myway-shop-app-ov4n.onrender.com/',
+    origin : 'https://myway-shop-app-ov4n.onrender.com',
     credentials : true
 }))
 app.use(express.static('public/image'));
